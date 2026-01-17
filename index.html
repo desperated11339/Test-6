@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristian Transfers - Traslados Privados en Mallorca</title>
+    <link rel="icon" type="image/svg+xml" href="KT.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="Logo.png" alt="Kristian Transfers" class="logo-image">
+                </div>
+                <nav class="nav-menu">
+                    <a href="javascript:void(0)" class="nav-link active" data-page="inicio" onclick="showPage('inicio')" data-translate="nav.inicio">Inicio</a>
+                    <a href="javascript:void(0)" class="nav-link" data-page="precios" onclick="showPage('precios')" data-translate="nav.precios">Precios</a>
+                    <a href="javascript:void(0)" class="nav-link" data-page="servicios" onclick="showPage('servicios')" data-translate="nav.servicios">Servicios</a>
+                    <a href="javascript:void(0)" class="nav-link" data-page="soporte" onclick="showPage('soporte')" data-translate="nav.soporte">Soporte</a>
+                </nav>
+                <div class="header-right">
+                    <div class="language-selector">
+                        <button class="lang-btn" id="langBtn">
+                            <img src="https://flagcdn.com/w20/es.png" alt="ES" class="flag-icon" id="currentFlag">
+                            <span id="currentLang">ES</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <a href="javascript:void(0)" onclick="changeLanguage('es')" data-lang="es">
+                                <img src="https://flagcdn.com/w20/es.png" alt="ES" class="flag-icon-small"> Español
+                            </a>
+                            <a href="javascript:void(0)" onclick="changeLanguage('en')" data-lang="en">
+                                <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="flag-icon-small"> English
+                            </a>
+                            <a href="javascript:void(0)" onclick="changeLanguage('de')" data-lang="de">
+                                <img src="https://flagcdn.com/w20/de.png" alt="DE" class="flag-icon-small"> Deutsch
+                            </a>
+                            <a href="javascript:void(0)" onclick="changeLanguage('fr')" data-lang="fr">
+                                <img src="https://flagcdn.com/w20/fr.png" alt="FR" class="flag-icon-small"> Français
+                            </a>
+                            <a href="javascript:void(0)" onclick="changeLanguage('it')" data-lang="it">
+                                <img src="https://flagcdn.com/w20/it.png" alt="IT" class="flag-icon-small"> Italiano
+                            </a>
+                            <a href="javascript:void(0)" onclick="changeLanguage('pt')" data-lang="pt">
+                                <img src="https://flagcdn.com/w20/pt.png" alt="PT" class="flag-icon-small"> Português
+                            </a>
+                            <a href="javascript:void(0)" onclick="changeLanguage('ru')" data-lang="ru">
+                                <img src="https://flagcdn.com/w20/ru.png" alt="RU" class="flag-icon-small"> Русский
+                            </a>
+                        </div>
+                    </div>
+                    <div class="user-menu-container" style="position: relative; margin-right: 1rem;">
+                        <button class="btn btn-secondary header-btn cuenta-btn" id="userMenuBtn" onclick="toggleUserMenu(event)" style="margin-right: 0;">
+                            <span id="userMenuText">Mi cuenta</span>
+                        </button>
+                        <div class="user-menu-dropdown" id="userMenuDropdown" style="display: none; position: absolute; top: 100%; right: 0; background: var(--white); border: 2px solid var(--primary-blue); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-top: 0.5rem; min-width: 200px; z-index: 1000;">
+                            <a href="javascript:void(0)" class="user-menu-item" onclick="logoutUser()" style="display: block; padding: 0.75rem 1rem; color: var(--text-dark); text-decoration: none; border-bottom: 1px solid var(--border-color);">
+                                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                            </a>
+                            <a href="javascript:void(0)" class="user-menu-item" onclick="showPage('perfil')" style="display: block; padding: 0.75rem 1rem; color: var(--text-dark); text-decoration: none;">
+                                <i class="fas fa-user"></i> Mi perfil
+                            </a>
+                        </div>
+                    </div>
+                    <button class="btn-donate header-donate-btn" onclick="showPage('donate')" style="margin-right: 1rem;">
+                        <i class="fas fa-heart"></i> Donate
+                    </button>
+                    <button class="btn btn-primary header-btn btn-reservar-glow" onclick="showPage('reservar')" data-translate="btn.reservar">Reservar</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- INICIO Page -->
+        <div id="page-inicio" class="page active">
+            <section class="hero">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 data-translate="hero.title">Traslado privado seguro y puntual desde/hacia el aeropuerto</h1>
+                    <p data-translate="hero.subtitle">Transporte de calidad y confianza en Mallorca</p>
+                    <button class="btn btn-primary btn-large" onclick="showPage('reservar')" data-translate="btn.bookNow">Reservar ahora</button>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="how-it-works">
+                <div class="container">
+                    <h2 class="section-title" data-translate="howItWorks.title">CÓMO FUNCIONA</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3 data-translate="howItWorks.step1">Elige fecha y hora</h3>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <h3 data-translate="howItWorks.step2">Selecciona ruta</h3>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <h3 data-translate="howItWorks.step3">Reserva y disfruta</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section with Google Reviews Carousel -->
+            <section class="testimonials-section">
+                <div class="container">
+                    <h2 class="section-title" data-translate="testimonials.title">NUESTROS CLIENTES</h2>
+                    <div class="google-reviews-container">
+                        <div class="reviews-carousel" id="reviewsCarousel">
+                            <!-- Reviews will be loaded here dynamically -->
+                        </div>
+                        <div class="google-link">
+                            <div class="google-rating-badge">
+                                <img src="Google.png" alt="Google 5.0 Rating" class="google-rating-png">
+                            </div>
+                            <a href="https://www.google.com/maps/place/Kristiantransfers.com/@39.4657945,3.147513,20z/data=!4m6!3m5!1s0x12964d0b119fd1f3:0x23a37d9eb327b7ac!8m2!3d39.4658754!4d3.1475541!16s%2Fg%2F11nmmm5b5y?entry=tts&shorturl=1" target="_blank" class="btn-google">
+                                <i class="fab fa-google"></i> Ver todas las reseñas en Google
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lo que ofrecemos Section -->
+            <section class="what-we-offer-section">
+                <div class="container">
+                    <h2 class="section-title">LO QUE OFRECEMOS</h2>
+                    <div class="vehicles-grid">
+                        <div class="vehicle-card">
+                            <img src="Minivan.webp" alt="Minivan" class="vehicle-image">
+                            <div class="vehicle-overlay">
+                                <h3 class="vehicle-name">Minivan</h3>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <img src="Sedan.webp" alt="Sedan" class="vehicle-image">
+                            <div class="vehicle-overlay">
+                                <h3 class="vehicle-name">Sedan</h3>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <img src="VIP.webp" alt="VIP" class="vehicle-image">
+                            <div class="vehicle-overlay">
+                                <h3 class="vehicle-name">VIP</h3>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <img src="Shuttle Express.webp" alt="Shuttle Express" class="vehicle-image">
+                            <div class="vehicle-overlay">
+                                <h3 class="vehicle-name">Shuttle Express</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <div class="container">
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <p class="feature-text"><strong>Precios competitivos manteniendo un servicio de calidad superior. Aceptamos pagos con tarjeta de débito o crédito.</strong></p>
+                        </div>
+                        <div class="feature-item">
+                            <p class="feature-text"><strong>Reservar en línea es sencillo y rápido, ¡solo te llevará 5 minutos! En nuestra web, experiencia única para tu viaje.</strong></p>
+                        </div>
+                        <div class="feature-item">
+                            <p class="feature-text"><strong>Nuestro equipo está disponible las 24 horas del día, todos los días del año, incluidos festivos. Tu viaje en buenas manos.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SERVICIOS Page -->
+        <div id="page-servicios" class="page">
+            <!-- Why Book Section (Unified) -->
+            <section class="why-book-section">
+                <div class="container">
+                    <div class="prices-header-box tabla-precios">
+                        <h2 class="prices-section-title">Por qué elegir Kristian Transfers</h2>
+                        <p class="prices-intro" style="text-align: center; margin-top: 1rem;">Ofrecemos transfers privados desde/hacia el aeropuerto de Palma de Mallorca y otros destinos populares en la isla.</p>
+                        <p class="prices-intro" style="text-align: center; margin-top: 0.5rem;">La opción más fiable de traslados privados en Mallorca</p>
+                    </div>
+                    <div class="why-book-unified-grid">
+                        <div class="why-book-unified-feature">
+                            <div class="why-book-unified-icon green">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3>Soporte 24/7</h3>
+                            <p>Atención disponible siempre que lo necesites</p>
+                        </div>
+                        <div class="why-book-unified-feature">
+                            <div class="why-book-unified-icon green">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h3>Reserva en 2 Min</h3>
+                            <p>Proceso rápido y sencillo online</p>
+                        </div>
+                        <div class="why-book-unified-feature">
+                            <div class="why-book-unified-icon green">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3>Conductores Experimentados</h3>
+                            <p>Profesionales certificados y experimentados</p>
+                        </div>
+                        <div class="why-book-unified-feature">
+                            <div class="why-book-unified-icon green">
+                                <i class="fas fa-door-open"></i>
+                            </div>
+                            <h3>Puerta a Puerta</h3>
+                            <p>Servicio directo desde tu origen</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Grid -->
+            <section class="services-section-page">
+                <div class="container">
+                    <div class="prices-header-box tabla-precios">
+                        <h2 class="prices-section-title" data-translate="services.title">NUESTROS SERVICIOS</h2>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-plane-departure"></i>
+                            </div>
+                            <h3 data-translate="services.service1.title">Traslados al Aeropuerto</h3>
+                            <p>Viaje con total confort en vehículos premium desde cualquier punto de Mallorca hacia el aeropuerto de Palma. Puntualidad garantizada.</p>
+                            <button class="btn btn-primary service-card-btn" onclick="showPage('reservar')">Reservar Ahora</button>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-plane-arrival"></i>
+                            </div>
+                            <h3 data-translate="services.service2.title">Traslados desde el Aeropuerto</h3>
+                            <p>Recogida puntual en el aeropuerto y traslado exclusivo a tu destino en Mallorca con máxima comodidad y seguridad en vehículos premium.</p>
+                            <button class="btn btn-primary service-card-btn" onclick="showPage('reservar')">Reservar Ahora</button>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <h3 data-translate="services.service3.title">Traslados entre Destinos</h3>
+                            <p>Transporte privado exclusivo entre diferentes puntos de la isla. Experiencia premium puerta a puerta con total privacidad.</p>
+                            <button class="btn btn-primary service-card-btn" onclick="showPage('reservar')">Reservar Ahora</button>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3 data-translate="services.service4.title">Servicio VIP</h3>
+                            <p data-translate="services.service4.desc">Vehículos de lujo y servicio premium para ocasiones especiales. Máxima comodidad y elegancia.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 data-translate="services.service5.title">Transporte en Grupo</h3>
+                            <p data-translate="services.service5.desc">Vehículos espaciosos para grupos grandes. Furgonetas y minivans disponibles para tu comodidad.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 data-translate="services.service6.title">Servicio Nocturno</h3>
+                            <p data-translate="services.service6.desc">Disponible las 24 horas del día, todos los días del año, incluidos festivos. Siempre ahí cuando nos necesites.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- PRECIOS Page -->
+        <div id="page-precios" class="page">
+            <section class="prices-section-page">
+                <div class="container">
+                    <div class="prices-header-box tabla-precios">
+                        <h2 class="prices-section-title" data-translate="prices.title">PRECIOS</h2>
+                        <p class="prices-intro" data-translate="prices.intro" style="text-decoration: underline;">Tu transporte privado en Mallorca al mejor precio garantizado.</p>
+                    </div>
+                    
+                    <!-- Tabla de Precios Principal -->
+                    <div class="prices-container">
+                        <table class="prices-table">
+                            <thead>
+                                <tr>
+                                    <th>RUTA</th>
+                                    <th>STANDARD</th>
+                                    <th>NOCTURNO</th>
+                                    <th>ONE-WAY</th>
+                                    <th>RETURN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AEROPUERTO - ALARÓ</td>
+                                    <td>60 €</td>
+                                    <td>91 €</td>
+                                    <td>100 €</td>
+                                    <td>110 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - ALCUDIA</td>
+                                    <td>85 €</td>
+                                    <td>120 €</td>
+                                    <td>140 €</td>
+                                    <td>160 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - ALGAIDA</td>
+                                    <td>45 €</td>
+                                    <td>60 €</td>
+                                    <td>90 €</td>
+                                    <td>110 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - ALQUERIA BLANCA</td>
+                                    <td>70 €</td>
+                                    <td>110 €</td>
+                                    <td>130 €</td>
+                                    <td>150 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - ANDRATX</td>
+                                    <td>65 €</td>
+                                    <td>100 €</td>
+                                    <td>120 €</td>
+                                    <td>170 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - ARENAL</td>
+                                    <td>40 €</td>
+                                    <td>50 €</td>
+                                    <td>70 €</td>
+                                    <td>90 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - ARIANY</td>
+                                    <td>70 €</td>
+                                    <td>110 €</td>
+                                    <td>120 €</td>
+                                    <td>125 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - ARTÀ</td>
+                                    <td>100 €</td>
+                                    <td>130 €</td>
+                                    <td>140 €</td>
+                                    <td>190 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - AUCANADA</td>
+                                    <td>85 €</td>
+                                    <td>120 €</td>
+                                    <td>140 €</td>
+                                    <td>160 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - BAHIA AZUL</td>
+                                    <td>45 €</td>
+                                    <td>60 €</td>
+                                    <td>90 €</td>
+                                    <td>100 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - BANYALBUFAR</td>
+                                    <td>80 €</td>
+                                    <td>120 €</td>
+                                    <td>140 €</td>
+                                    <td>165 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - BENDINAT</td>
+                                    <td>50 €</td>
+                                    <td>60 €</td>
+                                    <td>100 €</td>
+                                    <td>105 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - BETLEM</td>
+                                    <td>100 €</td>
+                                    <td>140 €</td>
+                                    <td>150 €</td>
+                                    <td>200 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - BINIALI</td>
+                                    <td>40 €</td>
+                                    <td>50 €</td>
+                                    <td>95 €</td>
+                                    <td>100 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - BINISSALEM</td>
+                                    <td>50 €</td>
+                                    <td>85 €</td>
+                                    <td>95 €</td>
+                                    <td>115 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - BÚGER</td>
+                                    <td>70 €</td>
+                                    <td>110 €</td>
+                                    <td>125 €</td>
+                                    <td>160 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - BUNYOLA</td>
+                                    <td>50 €</td>
+                                    <td>80 €</td>
+                                    <td>95 €</td>
+                                    <td>125 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CALA D'OR</td>
+                                    <td>85 €</td>
+                                    <td>120 €</td>
+                                    <td>140 €</td>
+                                    <td>180 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CALA FIGUERA</td>
+                                    <td>85 €</td>
+                                    <td>120 €</td>
+                                    <td>140 €</td>
+                                    <td>170 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CALA MAJOR</td>
+                                    <td>45 €</td>
+                                    <td>60 €</td>
+                                    <td>90 €</td>
+                                    <td>100 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CALA MESQUIDA</td>
+                                    <td>105 €</td>
+                                    <td>140 €</td>
+                                    <td>160 €</td>
+                                    <td>200 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CALA MILLOR</td>
+                                    <td>95 €</td>
+                                    <td>135 €</td>
+                                    <td>150 €</td>
+                                    <td>180 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CALA RATJADA</td>
+                                    <td>105 €</td>
+                                    <td>140 €</td>
+                                    <td>160 €</td>
+                                    <td>180 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CALA SANT VICENTE</td>
+                                    <td>90 €</td>
+                                    <td>120 €</td>
+                                    <td>140 €</td>
+                                    <td>170 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CALVIÀ</td>
+                                    <td>55 €</td>
+                                    <td>70 €</td>
+                                    <td>100 €</td>
+                                    <td>115 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CAMP DE MAR</td>
+                                    <td>65 €</td>
+                                    <td>90 €</td>
+                                    <td>100 €</td>
+                                    <td>120 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CAN PASTILLA</td>
+                                    <td>35 €</td>
+                                    <td>45 €</td>
+                                    <td>60 €</td>
+                                    <td>70 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CAN PICAFORT</td>
+                                    <td>85 €</td>
+                                    <td>125 €</td>
+                                    <td>140 €</td>
+                                    <td>160 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - CANYAMEL</td>
+                                    <td>105 €</td>
+                                    <td>140 €</td>
+                                    <td>160 €</td>
+                                    <td>185 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - COLONIA SANT JORDI</td>
+                                    <td>70 €</td>
+                                    <td>100 €</td>
+                                    <td>120 €</td>
+                                    <td>125 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - DEIÀ</td>
+                                    <td>70 €</td>
+                                    <td>100 €</td>
+                                    <td>125 €</td>
+                                    <td>155 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - INCA</td>
+                                    <td>55 €</td>
+                                    <td>80 €</td>
+                                    <td>100 €</td>
+                                    <td>140 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - LLUCMAJOR</td>
+                                    <td>50 €</td>
+                                    <td>70 €</td>
+                                    <td>105 €</td>
+                                    <td>120 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - MAGALUF</td>
+                                    <td>55 €</td>
+                                    <td>75 €</td>
+                                    <td>105 €</td>
+                                    <td>140 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - PALMA</td>
+                                    <td>40 €</td>
+                                    <td>55 €</td>
+                                    <td>85 €</td>
+                                    <td>95 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - PALMANOVA</td>
+                                    <td>55 €</td>
+                                    <td>75 €</td>
+                                    <td>100 €</td>
+                                    <td>110 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - PLAYA DE MURO</td>
+                                    <td>85 €</td>
+                                    <td>125 €</td>
+                                    <td>140 €</td>
+                                    <td>160 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - POLLENSA</td>
+                                    <td>85 €</td>
+                                    <td>120 €</td>
+                                    <td>135 €</td>
+                                    <td>160 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - PORTO CRISTO</td>
+                                    <td>90 €</td>
+                                    <td>125 €</td>
+                                    <td>130 €</td>
+                                    <td>150 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - PUERTO ANDRATX</td>
+                                    <td>65 €</td>
+                                    <td>105 €</td>
+                                    <td>105 €</td>
+                                    <td>130 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - PUERTO POLLENSA</td>
+                                    <td>90 €</td>
+                                    <td>125 €</td>
+                                    <td>140 €</td>
+                                    <td>160 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - SA COMA</td>
+                                    <td>92 €</td>
+                                    <td>130 €</td>
+                                    <td>150 €</td>
+                                    <td>160 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - SANTA PONSA</td>
+                                    <td>60 €</td>
+                                    <td>80 €</td>
+                                    <td>95 €</td>
+                                    <td>150 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - SÓLLER</td>
+                                    <td>65 €</td>
+                                    <td>100 €</td>
+                                    <td>130 €</td>
+                                    <td>145 €</td>
+                                </tr>
+                                <tr>
+                                    <td>AEROPUERTO - VALLDEMOSSA</td>
+                                    <td>55 €</td>
+                                    <td>80 €</td>
+                                    <td>90 €</td>
+                                    <td>110 €</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Sección Rutas Campos de Golf -->
+                    <div style="margin-top: 4rem;">
+                        <div class="prices-header-box tabla-precios">
+                            <h2 class="prices-section-title">RUTAS CAMPOS DE GOLF</h2>
+                            <p class="prices-intro" style="text-decoration: underline;">Precios de traslados privados en Mallorca</p>
+                        </div>
+                        <div class="prices-container">
+                            <table class="prices-table">
+                                <thead>
+                                    <tr>
+                                        <th>RUTA</th>
+                                        <th>STANDARD</th>
+                                        <th>NOCTURNO</th>
+                                        <th>ONE-WAY</th>
+                                        <th>RETURN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>AEROPUERTO - GOLF ALCANADA</td>
+                                        <td>90 €</td>
+                                        <td>125 €</td>
+                                        <td>125 €</td>
+                                        <td>140 €</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AEROPUERTO - GOLF BENDINAT</td>
+                                        <td>45 €</td>
+                                        <td>59 €</td>
+                                        <td>85 €</td>
+                                        <td>100 €</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AEROPUERTO - GOLF SON ANTEM</td>
+                                        <td>45 €</td>
+                                        <td>64 €</td>
+                                        <td>90 €</td>
+                                        <td>105 €</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AEROPUERTO - GOLF SON VIDA</td>
+                                        <td>45 €</td>
+                                        <td>65 €</td>
+                                        <td>85 €</td>
+                                        <td>100 €</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AEROPUERTO - PULA GOLF</td>
+                                        <td>85 €</td>
+                                        <td>130 €</td>
+                                        <td>150 €</td>
+                                        <td>165 €</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- RESERVAR Page -->
+        <div id="page-reservar" class="page">
+            <section class="reservar-section-page">
+                <div class="container">
+                    <!-- Booking Steps Wizard -->
+                    <div class="booking-wizard" id="bookingWizard">
+                        <!-- Step -1: Service Selection -->
+                        <div class="booking-step active" id="step-service">
+                            <h2 class="service-selection-title">¿A dónde te llevamos hoy?</h2>
+                            <div class="service-selection-container">
+                                <div class="service-cards-wrapper">
+                                    <div class="service-card-large" onclick="selectService('direccion')">
+                                        <div class="service-card-icon">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <h3 class="service-card-title">Aeropuerto</h3>
+                                        <p class="service-card-description">Trayectos desde o hacia la terminal. Puntualidad garantiza.</p>
+                                    </div>
+                                    <div class="service-card-large" onclick="selectService('traslado')">
+                                        <div class="service-card-icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <i class="fas fa-arrows-alt-h"></i>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <h3 class="service-card-title">Traslado Privado</h3>
+                                        <p class="service-card-description">Moverse por la ciudad o entre destinos específicos con total comodidad.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 0: Direction Selection -->
+                        <div class="booking-step" id="step0">
+                            <div class="booking-step-card">
+                                <h3 class="step-title">Aeropuerto</h3>
+                                <div class="step-options">
+                                    <button type="button" class="step-option-btn" onclick="selectDirection('aeropuerto-destino')">
+                                        Aeropuerto - Destino
+                                    </button>
+                                    <button type="button" class="step-option-btn" onclick="selectDirection('destino-aeropuerto')">
+                                        Destino - Aeropuerto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 1: Trip Type -->
+                        <div class="booking-step" id="step1">
+                            <div class="booking-step-card">
+                                <h3 class="step-title">Tipo de viaje</h3>
+                                <div class="step-options">
+                                    <button type="button" class="step-option-btn" onclick="selectTripType('ida')">
+                                        Ida
+                                    </button>
+                                    <button type="button" class="step-option-btn" onclick="selectTripType('ida-vuelta')">
+                                        Ida y vuelta
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Destinations -->
+                        <div class="booking-step" id="step2">
+                            <div class="booking-step-card">
+                                <h3 class="step-title">Destinos</h3>
+                                <div id="destinationsContent">
+                                    <!-- Content will be populated by JavaScript -->
+                                </div>
+                                <button type="button" class="btn btn-primary step-next-btn" id="nextFromDestinations" onclick="nextStep(3)" style="display: none;">Siguiente</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Passengers -->
+                        <div class="booking-step" id="step3">
+                            <div class="booking-step-card">
+                                <h3 class="step-title">¿Cuántas personas sois?</h3>
+                                <div class="passenger-counter">
+                                    <div class="counter-item">
+                                        <label>Adultos 12+</label>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" onclick="changeCounter('adults', -1)">-</button>
+                                            <span class="counter-value" id="adultsCount">0</span>
+                                            <button type="button" class="counter-btn" onclick="changeCounter('adults', 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="counter-item">
+                                        <label>Niños 2-12</label>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" onclick="changeCounter('children', -1)">-</button>
+                                            <span class="counter-value" id="childrenCount">0</span>
+                                            <button type="button" class="counter-btn" onclick="changeCounter('children', 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="counter-item">
+                                        <label>Bebés &lt;2</label>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" onclick="changeCounter('babies', -1)">-</button>
+                                            <span class="counter-value" id="babiesCount">0</span>
+                                            <button type="button" class="counter-btn" onclick="changeCounter('babies', 1)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary step-next-btn" id="nextFromPassengers" onclick="nextStep(4)" style="display: none;">Siguiente</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Extras -->
+                        <div class="booking-step" id="step4">
+                            <div class="booking-step-card">
+                                <h3 class="step-title">Escoge tus extras</h3>
+                                <p class="step-description" style="font-style: italic; text-decoration: underline;">Incluye una maleta de mano y una maleta de bodega por persona. Si llevas equipaje adicional, selecciona tus extras:</p>
+                                <div class="extras-counter">
+                                    <div class="counter-item">
+                                        <label>Maleta adicional (por persona más de 1)</label>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" onclick="changeCounter('luggage', -1)">-</button>
+                                            <span class="counter-value" id="luggageCount">0</span>
+                                            <button type="button" class="counter-btn" onclick="changeCounter('luggage', 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="counter-item">
+                                        <label>Silla Bebé (11-18kg)</label>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" onclick="changeCounter('babySeat', -1)">-</button>
+                                            <span class="counter-value" id="babySeatCount">0</span>
+                                            <button type="button" class="counter-btn" onclick="changeCounter('babySeat', 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="counter-item">
+                                        <label>Maxi Cosi (&lt;10 kg)</label>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" onclick="changeCounter('maxiCosi', -1)">-</button>
+                                            <span class="counter-value" id="maxiCosiCount">0</span>
+                                            <button type="button" class="counter-btn" onclick="changeCounter('maxiCosi', 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="counter-item">
+                                        <label>Bicicletas Adicionales</label>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" onclick="changeCounter('bicycles', -1)">-</button>
+                                            <span class="counter-value" id="bicyclesCount">0</span>
+                                            <button type="button" class="counter-btn" onclick="changeCounter('bicycles', 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="counter-item">
+                                        <label>Bolsas de golf</label>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" onclick="changeCounter('golf', -1)">-</button>
+                                            <span class="counter-value" id="golfCount">0</span>
+                                            <button type="button" class="counter-btn" onclick="changeCounter('golf', 1)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary step-next-btn" id="nextFromExtras" onclick="showBookingForm()">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Booking Form Centered (Initially Hidden) -->
+                    <div class="booking-form-section-centered" id="bookingFormSection" style="display: none;">
+                        <div class="booking-form-container-centered">
+                            <h2 class="form-title-centered">RESERVA</h2>
+                            <p class="form-note" style="text-decoration: underline;">*Todas las reservas deberán abonarse antes de ser confirmadas.</p>
+                        <form id="bookingForm" class="booking-form">
+                                    <!-- Single Confirmation Box with all information -->
+                                    <div class="confirmation-box-summary" id="confirmationBoxSummary">
+                                        <div class="confirmation-summary-content">
+                                            <!-- Trip Type -->
+                                            <div class="summary-item">
+                                                <span class="summary-label">Tipo de viaje:</span>
+                                                <span class="summary-value" id="summaryTripType">-</span>
+                                            </div>
+                                            
+                                            <!-- Destinations -->
+                                            <div class="summary-item" id="summaryDestinationsOneWay">
+                                                <span class="summary-label">Desde:</span>
+                                                <span class="summary-value" id="summaryOrigin">-</span>
+                                            </div>
+                                            <div class="summary-item" id="summaryDestinationsOneWay2">
+                                                <span class="summary-label">Hasta:</span>
+                                                <span class="summary-value" id="summaryDestination">-</span>
+                                            </div>
+                                            
+                                            <!-- Return Destinations (hidden by default) -->
+                                            <div class="summary-item" id="summaryDestinationsReturn" style="display: none;">
+                                                <span class="summary-label">Ida - Desde:</span>
+                                                <span class="summary-value" id="summaryReturnOrigin">-</span>
+                                            </div>
+                                            <div class="summary-item" id="summaryDestinationsReturn2" style="display: none;">
+                                                <span class="summary-label">Ida - Hasta:</span>
+                                                <span class="summary-value" id="summaryReturnDestination">-</span>
+                                            </div>
+                                            <div class="summary-item" id="summaryDestinationsReturn3" style="display: none;">
+                                                <span class="summary-label">Vuelta - Desde:</span>
+                                                <span class="summary-value" id="summaryReturnBackOrigin">-</span>
+                                            </div>
+                                            <div class="summary-item" id="summaryDestinationsReturn4" style="display: none;">
+                                                <span class="summary-label">Vuelta - Hasta:</span>
+                                                <span class="summary-value" id="summaryReturnBackDestination">-</span>
+                                            </div>
+                                            
+                                            <!-- Passengers -->
+                                            <div class="summary-item-summary">
+                                                <div class="summary-label-block">¿Cuántas personas sois?</div>
+                                                <div class="summary-value-detail" id="summaryPassengers">
+                                                    <div class="detail-line">-Adultos 12+ (0)</div>
+                                                    <div class="detail-line">-Niños 2-12 (0)</div>
+                                                    <div class="detail-line">-Bebés &lt;2 (0)</div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Extras -->
+                                            <div class="summary-item-summary">
+                                                <div class="summary-label-block">Escoge tus extras:</div>
+                                                <div class="summary-value-detail" id="summaryExtras">
+                                                    <div class="detail-line" id="extrasLineLuggage">-Maleta adicional (0)</div>
+                                                    <div class="detail-line" id="extrasLineBabySeat">-Silla Bebé 11-18kg (0)</div>
+                                                    <div class="detail-line" id="extrasLineMaxiCosi">-Maxi Cosi &lt;10 kg (0)</div>
+                                                    <div class="detail-line" id="extrasLineBicycles">-Bicicletas Adicionales (0)</div>
+                                                    <div class="detail-line" id="extrasLineGolf">-Bolsas de golf (0)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="confirmation-summary-footer">
+                                            <button type="button" class="btn-confirm-check" onclick="confirmBookingSummary()">
+                                                <i class="fas fa-check"></i>
+                                                Confirmar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Hidden form fields for submission -->
+                                    <input type="hidden" name="tripType" id="formTripType" value="one-way">
+                                    <input type="hidden" name="origin" id="formOrigin" value="">
+                                    <input type="hidden" name="destination" id="formDestination" value="">
+                                    <input type="hidden" name="passengers" id="formPassengers" value="">
+                                    <input type="hidden" name="luggage" id="formLuggage" value="">
+
+                                    <!-- Second Section: Service Type, Dates, and Personal Data (Hidden by default) -->
+                                    <div id="bookingFormSecondSection" class="booking-form-second-section" style="display: none;">
+                                    <!-- Service Type -->
+                                    <div class="form-group service-type">
+                                        <label>
+                                            <input type="radio" name="serviceType" value="standard" checked>
+                                            <span>Standard</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="serviceType" value="nocturno">
+                                            <span>Nocturno</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- Pick Up Date/Time -->
+                                    <div class="form-group">
+                                        <label for="pickupDate">Fecha de recogida</label>
+                                        <input type="date" id="pickupDate" name="pickupDate" required min="" class="date-input">
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="pickupHour">Hora</label>
+                                            <select id="pickupHour" name="pickupHour" required>
+                                                <option value="">HH</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pickupMinute">Minutos</label>
+                                            <select id="pickupMinute" name="pickupMinute" required>
+                                                <option value="">MM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Return Date/Time (conditional) -->
+                                    <div id="returnSection" class="form-group return-section" style="display: none;">
+                                        <label for="returnDate">Fecha de regreso</label>
+                                        <input type="date" id="returnDate" name="returnDate" min="" class="date-input">
+                                    </div>
+
+                                    <div id="returnTimeSection" class="form-row return-section" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="returnHour">Hora</label>
+                                            <select id="returnHour" name="returnHour">
+                                                <option value="">HH</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="returnMinute">Minutos</label>
+                                            <select id="returnMinute" name="returnMinute">
+                                                <option value="">MM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Name -->
+                                    <div class="form-group">
+                                        <label for="name">Nombre</label>
+                                        <input type="text" id="name" name="name" required>
+                                    </div>
+
+                                    <!-- Apellido -->
+                                    <div class="form-group">
+                                        <label for="surname">Apellido</label>
+                                        <input type="text" id="surname" name="surname" required>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+
+                                    <!-- Phone -->
+                                    <div class="form-group">
+                                        <label for="phoneCode">Teléfono</label>
+                                        <div class="phone-input">
+                                            <select id="phoneCode" name="phoneCode" required>
+                                                <option value="">Selecciona código de país...</option>
+                                                <option value="+93">+93 (Afganistán/Afghanistan)</option>
+                                                <option value="+355">+355 (Albania)</option>
+                                                <option value="+213">+213 (Argelia/Algeria)</option>
+                                                <option value="+376">+376 (Andorra)</option>
+                                                <option value="+244">+244 (Angola)</option>
+                                                <option value="+1-268">+1-268 (Antigua y Barbuda)</option>
+                                                <option value="+54">+54 (Argentina)</option>
+                                                <option value="+374">+374 (Armenia)</option>
+                                                <option value="+297">+297 (Aruba)</option>
+                                                <option value="+61">+61 (Australia)</option>
+                                                <option value="+43">+43 (Austria)</option>
+                                                <option value="+994">+994 (Azerbaiyán/Azerbaijan)</option>
+                                                <option value="+1-242">+1-242 (Bahamas)</option>
+                                                <option value="+973">+973 (Bahrein/Bahrain)</option>
+                                                <option value="+880">+880 (Bangladés/Bangladesh)</option>
+                                                <option value="+1-246">+1-246 (Barbados)</option>
+                                                <option value="+375">+375 (Bielorrusia/Belarus)</option>
+                                                <option value="+32">+32 (Bélgica/Belgium)</option>
+                                                <option value="+501">+501 (Belice/Belize)</option>
+                                                <option value="+229">+229 (Benín/Benin)</option>
+                                                <option value="+1-441">+1-441 (Bermudas/Bermuda)</option>
+                                                <option value="+975">+975 (Bután/Bhutan)</option>
+                                                <option value="+591">+591 (Bolivia)</option>
+                                                <option value="+387">+387 (Bosnia y Herzegovina)</option>
+                                                <option value="+267">+267 (Botsuana/Botswana)</option>
+                                                <option value="+55">+55 (Brasil/Brazil)</option>
+                                                <option value="+673">+673 (Brunéi/Brunei)</option>
+                                                <option value="+359">+359 (Bulgaria)</option>
+                                                <option value="+226">+226 (Burkina Faso)</option>
+                                                <option value="+257">+257 (Burundi)</option>
+                                                <option value="+855">+855 (Camboya/Cambodia)</option>
+                                                <option value="+237">+237 (Camerún/Cameroon)</option>
+                                                <option value="+1">+1 (Canadá/Canada)</option>
+                                                <option value="+238">+238 (Cabo Verde/Cape Verde)</option>
+                                                <option value="+1-345">+1-345 (Islas Caimán/Cayman Islands)</option>
+                                                <option value="+236">+236 (República Centroafricana/Central African Republic)</option>
+                                                <option value="+235">+235 (Chad)</option>
+                                                <option value="+56">+56 (Chile)</option>
+                                                <option value="+86">+86 (China)</option>
+                                                <option value="+57">+57 (Colombia)</option>
+                                                <option value="+269">+269 (Comoras/Comoros)</option>
+                                                <option value="+242">+242 (Congo)</option>
+                                                <option value="+243">+243 (República Democrática del Congo)</option>
+                                                <option value="+506">+506 (Costa Rica)</option>
+                                                <option value="+385">+385 (Croacia/Croatia)</option>
+                                                <option value="+53">+53 (Cuba)</option>
+                                                <option value="+357">+357 (Chipre/Cyprus)</option>
+                                                <option value="+420">+420 (República Checa/Czech Republic)</option>
+                                                <option value="+45">+45 (Dinamarca/Denmark)</option>
+                                                <option value="+253">+253 (Yibuti/Djibouti)</option>
+                                                <option value="+1-767">+1-767 (Dominica)</option>
+                                                <option value="+1-809">+1-809 (República Dominicana/Dominican Republic)</option>
+                                                <option value="+593">+593 (Ecuador)</option>
+                                                <option value="+20">+20 (Egipto/Egypt)</option>
+                                                <option value="+503">+503 (El Salvador)</option>
+                                                <option value="+240">+240 (Guinea Ecuatorial/Equatorial Guinea)</option>
+                                                <option value="+291">+291 (Eritrea)</option>
+                                                <option value="+372">+372 (Estonia)</option>
+                                                <option value="+251">+251 (Etiopía/Ethiopia)</option>
+                                                <option value="+500">+500 (Islas Malvinas/Falkland Islands)</option>
+                                                <option value="+298">+298 (Islas Feroe/Faroe Islands)</option>
+                                                <option value="+679">+679 (Fiyi/Fiji)</option>
+                                                <option value="+358">+358 (Finlandia/Finland)</option>
+                                                <option value="+33">+33 (Francia/France)</option>
+                                                <option value="+594">+594 (Guayana Francesa/French Guiana)</option>
+                                                <option value="+689">+689 (Polinesia Francesa/French Polynesia)</option>
+                                                <option value="+241">+241 (Gabón/Gabon)</option>
+                                                <option value="+220">+220 (Gambia)</option>
+                                                <option value="+995">+995 (Georgia)</option>
+                                                <option value="+49">+49 (Alemania/Germany)</option>
+                                                <option value="+233">+233 (Ghana)</option>
+                                                <option value="+350">+350 (Gibraltar)</option>
+                                                <option value="+30">+30 (Grecia/Greece)</option>
+                                                <option value="+299">+299 (Groenlandia/Greenland)</option>
+                                                <option value="+1-473">+1-473 (Granada/Grenada)</option>
+                                                <option value="+590">+590 (Guadalupe/Guadeloupe)</option>
+                                                <option value="+1-671">+1-671 (Guam)</option>
+                                                <option value="+502">+502 (Guatemala)</option>
+                                                <option value="+224">+224 (Guinea)</option>
+                                                <option value="+245">+245 (Guinea-Bisáu/Guinea-Bissau)</option>
+                                                <option value="+592">+592 (Guyana)</option>
+                                                <option value="+509">+509 (Haití/Haiti)</option>
+                                                <option value="+504">+504 (Honduras)</option>
+                                                <option value="+852">+852 (Hong Kong)</option>
+                                                <option value="+36">+36 (Hungría/Hungary)</option>
+                                                <option value="+354">+354 (Islandia/Iceland)</option>
+                                                <option value="+91">+91 (India)</option>
+                                                <option value="+62">+62 (Indonesia)</option>
+                                                <option value="+98">+98 (Irán/Iran)</option>
+                                                <option value="+964">+964 (Irak/Iraq)</option>
+                                                <option value="+353">+353 (Irlanda/Ireland)</option>
+                                                <option value="+972">+972 (Israel)</option>
+                                                <option value="+39">+39 (Italia/Italy)</option>
+                                                <option value="+1-876">+1-876 (Jamaica)</option>
+                                                <option value="+81">+81 (Japón/Japan)</option>
+                                                <option value="+962">+962 (Jordania/Jordan)</option>
+                                                <option value="+7">+7 (Kazajistán/Kazakhstan)</option>
+                                                <option value="+254">+254 (Kenia/Kenya)</option>
+                                                <option value="+686">+686 (Kiribati)</option>
+                                                <option value="+383">+383 (Kosovo)</option>
+                                                <option value="+965">+965 (Kuwait)</option>
+                                                <option value="+996">+996 (Kirguistán/Kyrgyzstan)</option>
+                                                <option value="+856">+856 (Laos)</option>
+                                                <option value="+371">+371 (Letonia/Latvia)</option>
+                                                <option value="+961">+961 (Líbano/Lebanon)</option>
+                                                <option value="+266">+266 (Lesoto/Lesotho)</option>
+                                                <option value="+231">+231 (Liberia)</option>
+                                                <option value="+218">+218 (Libia/Libya)</option>
+                                                <option value="+423">+423 (Liechtenstein)</option>
+                                                <option value="+370">+370 (Lituania/Lithuania)</option>
+                                                <option value="+352">+352 (Luxemburgo/Luxembourg)</option>
+                                                <option value="+853">+853 (Macao/Macau)</option>
+                                                <option value="+389">+389 (Macedonia del Norte/North Macedonia)</option>
+                                                <option value="+261">+261 (Madagascar)</option>
+                                                <option value="+265">+265 (Malaui/Malawi)</option>
+                                                <option value="+60">+60 (Malasia/Malaysia)</option>
+                                                <option value="+960">+960 (Maldivas/Maldives)</option>
+                                                <option value="+223">+223 (Malí/Mali)</option>
+                                                <option value="+356">+356 (Malta)</option>
+                                                <option value="+692">+692 (Islas Marshall/Marshall Islands)</option>
+                                                <option value="+596">+596 (Martinica/Martinique)</option>
+                                                <option value="+222">+222 (Mauritania)</option>
+                                                <option value="+230">+230 (Mauricio/Mauritius)</option>
+                                                <option value="+52">+52 (México/Mexico)</option>
+                                                <option value="+691">+691 (Micronesia)</option>
+                                                <option value="+373">+373 (Moldavia/Moldova)</option>
+                                                <option value="+377">+377 (Mónaco/Monaco)</option>
+                                                <option value="+976">+976 (Mongolia)</option>
+                                                <option value="+382">+382 (Montenegro)</option>
+                                                <option value="+1-664">+1-664 (Montserrat)</option>
+                                                <option value="+212">+212 (Marruecos/Morocco)</option>
+                                                <option value="+258">+258 (Mozambique)</option>
+                                                <option value="+95">+95 (Myanmar/Birmania)</option>
+                                                <option value="+264">+264 (Namibia)</option>
+                                                <option value="+674">+674 (Nauru)</option>
+                                                <option value="+977">+977 (Nepal)</option>
+                                                <option value="+31">+31 (Países Bajos/Netherlands)</option>
+                                                <option value="+687">+687 (Nueva Caledonia/New Caledonia)</option>
+                                                <option value="+64">+64 (Nueva Zelanda/New Zealand)</option>
+                                                <option value="+505">+505 (Nicaragua)</option>
+                                                <option value="+227">+227 (Níger/Niger)</option>
+                                                <option value="+234">+234 (Nigeria)</option>
+                                                <option value="+850">+850 (Corea del Norte/North Korea)</option>
+                                                <option value="+47">+47 (Noruega/Norway)</option>
+                                                <option value="+968">+968 (Omán/Oman)</option>
+                                                <option value="+92">+92 (Pakistán/Pakistan)</option>
+                                                <option value="+680">+680 (Palaos/Palau)</option>
+                                                <option value="+970">+970 (Palestina/Palestine)</option>
+                                                <option value="+507">+507 (Panamá/Panama)</option>
+                                                <option value="+675">+675 (Papúa Nueva Guinea/Papua New Guinea)</option>
+                                                <option value="+595">+595 (Paraguay)</option>
+                                                <option value="+51">+51 (Perú/Peru)</option>
+                                                <option value="+63">+63 (Filipinas/Philippines)</option>
+                                                <option value="+48">+48 (Polonia/Poland)</option>
+                                                <option value="+351">+351 (Portugal)</option>
+                                                <option value="+1-787">+1-787 (Puerto Rico)</option>
+                                                <option value="+974">+974 (Catar/Qatar)</option>
+                                                <option value="+262">+262 (Reunión/Réunion)</option>
+                                                <option value="+40">+40 (Rumanía/Romania)</option>
+                                                <option value="+7">+7 (Rusia/Russia)</option>
+                                                <option value="+250">+250 (Ruanda/Rwanda)</option>
+                                                <option value="+1-869">+1-869 (San Cristóbal y Nieves/Saint Kitts and Nevis)</option>
+                                                <option value="+1-758">+1-758 (Santa Lucía/Saint Lucia)</option>
+                                                <option value="+1-784">+1-784 (San Vicente y las Granadinas/Saint Vincent and the Grenadines)</option>
+                                                <option value="+685">+685 (Samoa)</option>
+                                                <option value="+378">+378 (San Marino)</option>
+                                                <option value="+239">+239 (Santo Tomé y Príncipe/São Tomé and Príncipe)</option>
+                                                <option value="+966">+966 (Arabia Saudí/Saudi Arabia)</option>
+                                                <option value="+221">+221 (Senegal)</option>
+                                                <option value="+381">+381 (Serbia)</option>
+                                                <option value="+248">+248 (Seychelles)</option>
+                                                <option value="+232">+232 (Sierra Leona/Sierra Leone)</option>
+                                                <option value="+65">+65 (Singapur/Singapore)</option>
+                                                <option value="+421">+421 (Eslovaquia/Slovakia)</option>
+                                                <option value="+386">+386 (Eslovenia/Slovenia)</option>
+                                                <option value="+677">+677 (Islas Salomón/Solomon Islands)</option>
+                                                <option value="+252">+252 (Somalia)</option>
+                                                <option value="+27">+27 (Sudáfrica/South Africa)</option>
+                                                <option value="+82">+82 (Corea del Sur/South Korea)</option>
+                                                <option value="+211">+211 (Sudán del Sur/South Sudan)</option>
+                                                <option value="+34">+34 (España/Spain)</option>
+                                                <option value="+94">+94 (Sri Lanka)</option>
+                                                <option value="+249">+249 (Sudán/Sudan)</option>
+                                                <option value="+597">+597 (Surinam/Suriname)</option>
+                                                <option value="+268">+268 (Suazilandia/Swaziland)</option>
+                                                <option value="+46">+46 (Suecia/Sweden)</option>
+                                                <option value="+41">+41 (Suiza/Switzerland)</option>
+                                                <option value="+963">+963 (Siria/Syria)</option>
+                                                <option value="+886">+886 (Taiwán/Taiwan)</option>
+                                                <option value="+992">+992 (Tayikistán/Tajikistan)</option>
+                                                <option value="+255">+255 (Tanzania)</option>
+                                                <option value="+66">+66 (Tailandia/Thailand)</option>
+                                                <option value="+670">+670 (Timor Oriental/Timor-Leste)</option>
+                                                <option value="+228">+228 (Togo)</option>
+                                                <option value="+690">+690 (Tokelau)</option>
+                                                <option value="+676">+676 (Tonga)</option>
+                                                <option value="+1-868">+1-868 (Trinidad y Tobago/Trinidad and Tobago)</option>
+                                                <option value="+216">+216 (Túnez/Tunisia)</option>
+                                                <option value="+90">+90 (Turquía/Turkey)</option>
+                                                <option value="+993">+993 (Turkmenistán/Turkmenistan)</option>
+                                                <option value="+1-649">+1-649 (Islas Turcas y Caicos/Turks and Caicos Islands)</option>
+                                                <option value="+688">+688 (Tuvalu)</option>
+                                                <option value="+256">+256 (Uganda)</option>
+                                                <option value="+380">+380 (Ucrania/Ukraine)</option>
+                                                <option value="+971">+971 (Emiratos Árabes Unidos/United Arab Emirates)</option>
+                                                <option value="+44">+44 (Reino Unido/United Kingdom)</option>
+                                                <option value="+1">+1 (Estados Unidos/United States)</option>
+                                                <option value="+598">+598 (Uruguay)</option>
+                                                <option value="+998">+998 (Uzbekistán/Uzbekistan)</option>
+                                                <option value="+678">+678 (Vanuatu)</option>
+                                                <option value="+379">+379 (Ciudad del Vaticano/Vatican City)</option>
+                                                <option value="+58">+58 (Venezuela)</option>
+                                                <option value="+84">+84 (Vietnam)</option>
+                                                <option value="+1-284">+1-284 (Islas Vírgenes Británicas/British Virgin Islands)</option>
+                                                <option value="+1-340">+1-340 (Islas Vírgenes de EE.UU./U.S. Virgin Islands)</option>
+                                                <option value="+681">+681 (Wallis y Futuna/Wallis and Futuna)</option>
+                                                <option value="+967">+967 (Yemen)</option>
+                                                <option value="+260">+260 (Zambia)</option>
+                                                <option value="+263">+263 (Zimbabue/Zimbabwe)</option>
+                                            </select>
+                                            <input type="tel" id="phone" name="phone" placeholder="Número de teléfono" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Submit Button -->
+                                    <button type="submit" class="btn btn-primary btn-submit btn-service">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Solicitar Servicio
+                                    </button>
+                                    
+                                    <p class="form-terms">
+                                        Al enviar este formulario, aceptas nuestros <a href="javascript:void(0)" onclick="showPage('terminos')">términos y condiciones</a>
+                                    </p>
+                                    </div>
+                                    <!-- End of Second Section -->
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- TÉRMINOS Y CONDICIONES Page -->
+        <div id="page-terminos" class="page">
+            <section class="terminos-section">
+                <div class="container">
+                    <h1 class="section-title">Términos y condiciones</h1>
+                    <div class="terminos-content">
+                        <p><strong>1.- DADES IDENTIFICATIVES:</strong> En compliment amb el deure d'informació recollit en article 10 de la Llei 34/2002, de 11 de juliol, de Serveis de la Societat de la Informació i del Comerç Electrònic, a continuació, es faciliten les següents dades : l'empresa titular de domini web és kristiantransfers.com. Correu electrònic de contacte: stoyan72.sn@gmail.com</p>
+                        
+                        <p><strong>2. USUARIS:</strong> L'accés i / o ús d'aquest portal de kristiantransfers.com atribueix la condició d'USUARI, que accepta, des d'aquest accés i / o ús, les Condicions Generals d'Ús aquí reflectides. Les esmentades Condicions s'aplicaran independentment de les Condicions Generals de Contractació que si escau resultin d'obligat compliment.</p>
+                        
+                        <p><strong>3. RESERVES I SERVEIS DE TRASLAT:</strong> www.kristiantransfers.com ofereix serveis de trasllat privat a Mallorca, incloent trasllats des de/cap a l'aeroport de Palma de Mallorca, trasllats entre destinacions a tota l'illa i serveis VIP. Les reserves es realitzen a través del formulari web disponible al portal. L'usuari s'obliga a proporcionar informació veritable i precisa sobre el nombre de passatgers, equipatge, data, hora, origen i destinació. Totes les reserves estan subjectes a confirmació per part de kristiantransfers.com. El preu indicat en el moment de la reserva és el preu final, excepte en cas de modificacions sol·licitades per l'usuari o circumstàncies extraordinàries. Les reserves han de ser pagades abans de la confirmació definitiva del servei. En cas de cancel·lació per part del client, s'aplicaran les polítiques de cancel·lació establertes segons l'antelació de la cancel·lació. kristiantransfers.com es reserva el dret de modificar o cancel·lar una reserva en cas de circumstàncies extraordinàries (força major, condicions meteorològiques extremes, etc.), retornant el pagament realitzat si escau.</p>
+                        
+                        <p><strong>3.1. ÚS DEL PORTAL:</strong> L'usuari es compromet a fer un ús adequat del portal web i dels serveis oferts, comprometent-se a no utilitzar-los per (i) incórrer en activitats il·lícites, il·legals o contràries a la bona fe i a l'ordre públic; (ii) difondre continguts o propaganda de caràcter racista, xenòfob o que atempti contra els drets humans; (iii) provocar danys en els sistemes físics i lògics de kristiantransfers.com o introduir virus informàtics; (iv) utilitzar dades falses o suplantar la identitat d'altres usuaris. kristiantransfers.com es reserva el dret de retirar tots aquells comentaris i aportacions inadequades. En qualsevol cas, kristiantransfers.com no serà responsable de les opinions abocades pels usuaris a través de les reseñas o altres eines de participació.</p>
+                        
+                        <p><strong>4. PROTECCIÓ DE DADES I PRIVACITAT:</strong> kristiantransfers.com compleix amb les directrius de la Llei Orgànica 3/2018 de 5 de desembre de Protecció de Dades de Caràcter Personal i Garanties de Drets Digitals. Les dades personals recollides a través del formulari de reserva (nom, correu electrònic, telèfon, destinació, data i hora del servei, nombre de passatgers i equipatge) s'utilitzen exclusivament per a la gestió i execució del servei de trasllat sol·licitat. Aquestes dades podran ser compartides amb el conductor assignat per a la realització del servei. L'usuari pot exercir els seus drets d'accés, rectificació, cancel·lació o oposició contactant amb stoyan72.sn@gmail.com. Les dades es conservaran mentre sigui necessari per a la prestació del servei i el compliment d'obligacions legals. kristiantransfers.com no utilitzarà les dades personals per a finalitats comercials sense el consentiment express de l'usuari. Així mateix, kristiantransfers.com informa que dóna compliment a la Llei 34/2002 de 11 de juliol, de Serveis de la Societat de la Informació i el Comerç Electrònic.</p>
+                        
+                        <p><strong>5. PROPIETAT INTEL·LECTUAL I INDUSTRIAL:</strong> kristiantransfers.com és titular de tots els drets de propietat intel·lectual i industrial de la seva pàgina web, així com dels elements continguts en la mateixa (a títol enunciatiu, imatges, so, àudio, vídeo, programari o textos; marques o logotips, combinacions de colors, estructura i disseny, selecció de materials usats, programes d'ordinador necessaris per al seu funcionament, accés i ús, etc.), titularitat de kristiantransfers.com o bé dels seus llicenciants. Tots els drets reservats. En virtut del que disposen els articles 8 i 32.1, paràgraf segon, de la Llei de Propietat Intel·lectual, queden expressament prohibides la reproducció, la distribució i la comunicació pública, inclosa la seva modalitat de posada a disposició, de la totalitat o part dels continguts d'aquesta pàgina web, amb fins comercials, en qualsevol suport i per qualsevol mitjà tècnic, sense l'autorització de kristiantransfers.com L'usuari es compromet a respectar els drets de Propietat Intel·lectual i Industrial titularitat de kristiantransfers.com. Podrà visualitzar els elements del portal i fins i tot imprimir-los, copiar-los i emmagatzemar-los al disc dur del seu ordinador o en qualsevol altre suport físic sempre que sigui, única i exclusivament, per al seu ús personal i privat. L'usuari haurà d'abstenir-se de suprimir, alterar, eludir o manipular qualsevol dispositiu de protecció o sistema de seguretat que estigués instal·lat a les pàgines de kristiantransfers.com.</p>
+                        
+                        <p><strong>6. RESPONSABILITAT DEL SERVEI:</strong> kristiantransfers.com es compromet a prestar els serveis de trasllat amb la màxima professionalitat i puntualitat. No obstant això, no es fa responsable de retards causats per circumstàncies fora del seu control com ara: trànsit intens, accidents de trànsit, condicions meteorològiques extremes, viatges cancel·lats o retrassats per part de les companyies aèries, o qualsevol altre esdeveniment de força major. En aquests casos, kristiantransfers.com farà tot el possible per minimitzar els inconvenients i informar al client amb la major antelació possible. Respecte al portal web, kristiantransfers.com no es fa responsable d'errors o omissions en els continguts, falta de disponibilitat del portal o la transmissió de virus informàtics, malgrat haver adoptat totes les mesures tecnològiques necessàries per evitar-ho.</p>
+                        
+                        <p><strong>7. MODIFICACIONS:</strong> kristiantransfers.com es reserva el dret d'efectuar sense previ avís les modificacions que consideri oportunes al seu portal, podent canviar, suprimir o afegir tant els continguts i serveis que es prestin a través de la mateixa com la forma en la que aquests apareguin presentats o localitzats al seu portal.</p>
+                        
+                        <p><strong>8. ENLLAÇOS:</strong> En el cas que en www.kristiantransfers.com es disposessin enllaços o hipervincles cap a altres llocs d'Internet, kristiantransfers.com no exercirà cap tipus de control sobre aquests llocs i continguts. En cap cas kristiantransfers.com assumirà responsabilitat alguna pels continguts d'algun enllaç pertanyent a un lloc web aliè, ni garantirà la disponibilitat tècnica, qualitat, fiabilitat, exactitud, amplitud, veracitat, validesa i constitucionalitat de qualsevol material o informació continguda en cap d'aquests hipervincles o altres llocs d'Internet. Igualment la inclusió d'aquestes connexions externes no implicarà cap tipus d'associació, fusió o participació amb les entitats connectades.</p>
+                        
+                        <p><strong>9. DRET D'EXCLUSIÓ:</strong> kristiantransfers.com es reserva el dret a denegar o retirar l'accés a portal i / o els serveis oferts sense necessitat de preavís, a instància pròpia o d'un tercer, a aquells usuaris que incompleixin les presents Condicions Generals d'ús.</p>
+                        
+                        <p><strong>10. GENERALITATS:</strong> kristiantransfers.com perseguirà l'incompliment de les presents condicions, així com qualsevol utilització indeguda del seu portal exercint totes les accions civils i penals que li puguin correspondre en dret.</p>
+                        
+                        <p><strong>11. MODIFICACIÓ DE LES PRESENTS CONDICIONS I DURADA:</strong> kristiantransfers.com podrà modificar en qualsevol moment les condicions aquí determinades, sent degudament publicades com aquí apareixen. La vigència de les citades condicions anirà en funció de la seva exposició i estaran vigents fins que siguin modificades per altres degudament publicades.</p>
+                        
+                        <p><strong>12. LEGISLACIÓ APLICABLE I JURISDICCIÓ:</strong> La relació entre kristiantransfers.com i l'USUARI es regirà per la normativa espanyola vigent i qualsevol controvèrsia se sotmetrà als Jutjats i tribunals de Manacor.</p>
+                        
+                        <p><strong>13. CONTACTE I ATENCIÓ AL CLIENT:</strong> Per a qualsevol consulta, reclamació o assistència, podeu contactar amb nosaltres a través del correu electrònic stoyan72.sn@gmail.com. Ens comprometem a respondre totes les consultes en el menor temps possible.</p>
+                        
+                        <p><strong>14. CANVIS EN EL SERVEI:</strong> kristiantransfers.com es reserva el dret de modificar, suspendre o interrompre qualsevol aspecte del servei en qualsevol moment, amb o sense preavís, sense responsabilitat cap a l'usuari o tercers.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- MI CUENTA Page -->
+        <div id="page-cuenta" class="page">
+            <section class="cuenta-section">
+                <div class="container">
+                    <div class="cuenta-container">
+                        <!-- Login Card -->
+                        <div class="cuenta-card" id="loginCard">
+                            <h2 class="cuenta-title">Inicia sesión</h2>
+                            <form id="loginForm" class="cuenta-form" onsubmit="handleUserLogin(event)">
+                                <div class="form-group">
+                                    <label for="loginEmail">Email o Usuario</label>
+                                    <input type="text" id="loginEmail" name="email" required class="form-control" placeholder="Email o nombre de usuario">
+                                </div>
+                                <div class="form-group">
+                                    <label for="loginPassword">Contraseña</label>
+                                    <input type="password" id="loginPassword" name="password" required class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" name="remember">
+                                        <span>Recordarme</span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full">Iniciar sesión</button>
+                                <p class="cuenta-link">
+                                    ¿No tienes cuenta? <a href="javascript:void(0)" onclick="showRegisterForm()">Regístrate</a>
+                                </p>
+                                <p class="cuenta-link">
+                                    <a href="javascript:void(0)">¿Olvidaste tu contraseña?</a>
+                                </p>
+                            </form>
+                        </div>
+
+                        <!-- Register Card -->
+                        <div class="cuenta-card" id="registerCard" style="display: none;">
+                            <h2 class="cuenta-title">Regístrate</h2>
+                            <form id="registerForm" class="cuenta-form" onsubmit="handleUserRegister(event)">
+                                <div class="form-group">
+                                    <label for="registerName">Nombre completo</label>
+                                    <input type="text" id="registerName" name="name" required class="form-control" style="padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; width: 100%; background: var(--white); color: var(--text-dark);">
+                                </div>
+                                <div class="form-group">
+                                    <label for="registerEmail">Email</label>
+                                    <input type="email" id="registerEmail" name="email" required class="form-control" style="padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; width: 100%; background: var(--white); color: var(--text-dark);">
+                                </div>
+                                <div class="form-group">
+                                    <label for="registerPhone">Teléfono</label>
+                                    <input type="tel" id="registerPhone" name="phone" required class="form-control" style="padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; width: 100%; background: var(--white); color: var(--text-dark);">
+                                </div>
+                                <!-- Email Verification Code Section -->
+                                <div class="form-group" id="emailVerificationSection" style="display: none;">
+                                    <label for="verificationCode">Código de verificación</label>
+                                    <input type="text" id="verificationCode" name="verificationCode" placeholder="Ingresa el código enviado a tu email" class="form-control" style="padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; width: 100%; background: var(--white); color: var(--text-dark);">
+                                    <button type="button" class="btn btn-secondary" onclick="sendVerificationCode()" style="margin-top: 0.5rem; width: 100%;">
+                                        Enviar código de verificación
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="registerPassword">Contraseña</label>
+                                    <input type="password" id="registerPassword" name="password" required class="form-control" style="padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; width: 100%; background: var(--white); color: var(--text-dark);">
+                                </div>
+                                <div class="form-group">
+                                    <label for="registerPasswordConfirm">Confirmar contraseña</label>
+                                    <input type="password" id="registerPasswordConfirm" name="passwordConfirm" required class="form-control" style="padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; width: 100%; background: var(--white); color: var(--text-dark);">
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" name="terms" required>
+                                        <span>Acepto los <a href="javascript:void(0)" onclick="showPage('terminos')">términos y condiciones</a></span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full" id="registerSubmitBtn" disabled>Registrarse</button>
+                                <p class="cuenta-link">
+                                    ¿Ya tienes cuenta? <a href="javascript:void(0)" onclick="showLoginForm()">Inicia sesión</a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- DONATE Page -->
+        <div id="page-donate" class="page">
+            <section class="donate-section">
+                <div class="container">
+                    <h1 class="section-title">Donate</h1>
+                    <div class="donate-content">
+                        <p>Gracias por tu apoyo. Tu contribución nos ayuda a mejorar nuestros servicios.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SOPORTE Page -->
+        <div id="page-soporte" class="page">
+            <section class="soporte-section">
+                <div class="container">
+                    <div class="prices-header-box tabla-precios">
+                        <h2 class="prices-section-title" data-translate="soporte.title">SOPORTE</h2>
+                    </div>
+                    
+                    <!-- Contact Section -->
+                    <div class="soporte-grid" style="margin-top: 0.5rem;">
+                        <div class="soporte-card">
+                            <div class="soporte-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Contacto por Email</h3>
+                            <p>Para consultas, reservas o soporte, escríbenos a:</p>
+                            <a href="mailto:info.new@kristiantransfers.com" class="soporte-link">
+                                info.new@kristiantransfers.com
+                            </a>
+                        </div>
+                        
+                        <div class="soporte-card">
+                            <div class="soporte-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Horario de Atención</h3>
+                            <p>Estamos disponibles las 24 horas del día, los 365 días del año para atenderte.</p>
+                            <p class="soporte-highlight">Soporte 24/7</p>
+                        </div>
+                        
+                        <div class="soporte-card">
+                            <div class="soporte-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h3>Preguntas Frecuentes</h3>
+                            <p>Resuelve tus dudas más comunes sobre nuestros servicios de traslado.</p>
+                            <button class="btn btn-primary" onclick="showFAQs()">Ver FAQs</button>
+                        </div>
+                    </div>
+
+                    <!-- FAQs Section -->
+                    <div class="faqs-section" id="faqsSection" style="display: none;">
+                        <h2 class="section-subtitle">Preguntas Frecuentes</h2>
+                        <div class="faqs-container">
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>¿Cómo puedo hacer una reserva?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Puedes realizar tu reserva de forma rápida y sencilla a través de nuestro formulario online en la sección "Reservar". Solo necesitas completar los datos solicitados (origen, destino, fecha, hora, número de pasajeros) y enviar el formulario. Te contactaremos para confirmar los detalles.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>¿Cuánto tiempo antes debo hacer la reserva?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Recomendamos realizar la reserva con al menos 24 horas de antelación para garantizar la disponibilidad. Sin embargo, también aceptamos reservas de última hora según disponibilidad. Para servicios nocturnos o en fechas especiales, se recomienda reservar con más antelación.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>¿Qué métodos de pago aceptan?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Aceptamos pagos con tarjeta de débito o crédito. Todas las reservas deben ser abonadas antes de ser confirmadas. El pago se realiza de forma segura a través de nuestro sistema.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>¿Qué pasa si mi vuelo se retrasa?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>No te preocupes. Nuestros conductores monitorean el estado de los vuelos. Si tu vuelo se retrasa, nos adaptamos sin coste adicional. Solo necesitas informarnos del nuevo horario de llegada lo antes posible para que podamos ajustar la recogida.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>¿Puedo cancelar o modificar mi reserva?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Sí, puedes cancelar o modificar tu reserva contactándonos por email. Las políticas de cancelación dependen del tiempo de antelación. Para cancelaciones con más de 48 horas de antelación, se aplicará una política de reembolso. Consulta nuestros términos y condiciones para más detalles.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>¿Qué tipos de vehículos tienen disponibles?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Disponemos de una amplia flota: Sedan (hasta 4 pasajeros), Minivan (hasta 7 pasajeros), Shuttle Express (hasta 8 pasajeros) y vehículos VIP para ocasiones especiales. Selecciona el vehículo adecuado según el número de pasajeros y equipaje en el formulario de reserva.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>¿Ofrecen servicio a todas las zonas de Mallorca?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Sí, ofrecemos servicio a toda la isla de Mallorca. Desde el aeropuerto de Palma hasta cualquier destino en la isla, incluyendo zonas turísticas como Magaluf, Alcudia, Cala d'Or, Puerto Pollensa, Sóller y muchas más. Consulta nuestra tabla de precios para ver todas las rutas disponibles.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>¿Los conductores hablan otros idiomas además del español?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Nuestros conductores profesionales están preparados para atenderte en múltiples idiomas. La página web está disponible en español, inglés, alemán, francés, italiano, portugués y ruso, y nuestros conductores pueden comunicarse en estos idiomas según disponibilidad.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Help Section -->
+                    <div class="help-section" style="margin-top: 2rem;">
+                        <h2 class="section-subtitle">¿Necesitas más ayuda?</h2>
+                        <div class="help-options">
+                            <div class="help-option">
+                                <i class="fas fa-file-alt"></i>
+                                <h4>Documentación</h4>
+                                <p>Consulta nuestros términos y condiciones y política de privacidad</p>
+                                <button class="btn btn-secondary" onclick="showPage('terminos')">Ver Términos</button>
+                            </div>
+                            <div class="help-option">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h4>Hacer una Reserva</h4>
+                                <p>Accede directamente al formulario de reserva</p>
+                                <button class="btn btn-primary" onclick="showPage('reservar')">Reservar Ahora</button>
+                            </div>
+                            <div class="help-option">
+                                <i class="fas fa-euro-sign"></i>
+                                <h4>Ver Precios</h4>
+                                <p>Consulta nuestra tabla de precios actualizada</p>
+                                <button class="btn btn-secondary" onclick="showPage('precios')">Ver Precios</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="Logo.png" alt="Kristian Transfers" class="logo-image">
+                </div>
+                <div class="footer-links">
+                    <a href="javascript:void(0)" onclick="showPage('terminos')" data-translate="footer.terms">Términos y condiciones</a>
+                    <a href="mailto:info.new@kristiantransfers.com">info.new@kristiantransfers.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>KristianTransfers © All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-banner-content">
+            <div class="cookie-tabs">
+                <button class="cookie-tab active" data-tab="consentimiento">Consentimiento</button>
+                <button class="cookie-tab" data-tab="detalles">Detalles</button>
+                <button class="cookie-tab" data-tab="acerca">Acerca de las cookies</button>
+            </div>
+            
+            <div class="cookie-tab-content">
+                <!-- Pestaña Consentimiento -->
+                <div id="tab-consentimiento" class="tab-panel active">
+                    <p class="cookie-description">
+                        Utilizamos cookies para personalizar contenido y anuncios, proporcionar funciones de redes sociales y analizar nuestro tráfico. También compartimos información sobre su uso de nuestro sitio con nuestros socios de redes sociales, publicidad y análisis.
+                    </p>
+                    <div class="cookie-toggles">
+                        <div class="cookie-toggle-item">
+                            <label class="cookie-toggle-label">
+                                <span class="cookie-toggle-name">Necesarias</span>
+                                <span class="cookie-toggle-desc">Estas cookies son esenciales para el funcionamiento del sitio web.</span>
+                            </label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked disabled>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="cookie-toggle-item">
+                            <label class="cookie-toggle-label">
+                                <span class="cookie-toggle-name">Preferencias</span>
+                                <span class="cookie-toggle-desc">Estas cookies permiten que el sitio web recuerde sus preferencias.</span>
+                            </label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="preferences" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="cookie-toggle-item">
+                            <label class="cookie-toggle-label">
+                                <span class="cookie-toggle-name">Estadística</span>
+                                <span class="cookie-toggle-desc">Estas cookies nos ayudan a entender cómo los visitantes interactúan con el sitio web.</span>
+                            </label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="statistics" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="cookie-toggle-item">
+                            <label class="cookie-toggle-label">
+                                <span class="cookie-toggle-name">Marketing</span>
+                                <span class="cookie-toggle-desc">Estas cookies se utilizan para mostrar anuncios relevantes para usted.</span>
+                            </label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="marketing">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pestaña Detalles -->
+                <div id="tab-detalles" class="tab-panel">
+                    <div class="cookie-details-table">
+                        <div class="cookie-category">
+                            <h3>Necesarias</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Proveedor</th>
+                                        <th>Propósito</th>
+                                        <th>Caducidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>cookieConsent</td>
+                                        <td>Kristian Transfers</td>
+                                        <td>Almacena el estado de consentimiento de cookies del usuario</td>
+                                        <td>1 año</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sessionId</td>
+                                        <td>Kristian Transfers</td>
+                                        <td>Mantiene la sesión del usuario activa</td>
+                                        <td>Sesión</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="cookie-category">
+                            <h3>Preferencias</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Proveedor</th>
+                                        <th>Propósito</th>
+                                        <th>Caducidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>language</td>
+                                        <td>Kristian Transfers</td>
+                                        <td>Almacena el idioma preferido del usuario</td>
+                                        <td>1 año</td>
+                                    </tr>
+                                    <tr>
+                                        <td>theme</td>
+                                        <td>Kristian Transfers</td>
+                                        <td>Almacena la preferencia de tema del usuario</td>
+                                        <td>1 año</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="cookie-category">
+                            <h3>Estadísticas</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Proveedor</th>
+                                        <th>Propósito</th>
+                                        <th>Caducidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>_ga</td>
+                                        <td>Google Analytics</td>
+                                        <td>Distingue a los usuarios únicos asignando un número generado aleatoriamente como identificador de cliente</td>
+                                        <td>2 años</td>
+                                    </tr>
+                                    <tr>
+                                        <td>_gid</td>
+                                        <td>Google Analytics</td>
+                                        <td>Distingue a los usuarios únicos</td>
+                                        <td>24 horas</td>
+                                    </tr>
+                                    <tr>
+                                        <td>_gat</td>
+                                        <td>Google Analytics</td>
+                                        <td>Se utiliza para limitar la velocidad de solicitud</td>
+                                        <td>1 minuto</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="cookie-category">
+                            <h3>Marketing</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Proveedor</th>
+                                        <th>Propósito</th>
+                                        <th>Caducidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>_fbp</td>
+                                        <td>Facebook Pixel</td>
+                                        <td>Utilizado por Facebook para entregar una serie de productos publicitarios</td>
+                                        <td>3 meses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>fr</td>
+                                        <td>Facebook Pixel</td>
+                                        <td>Contiene el ID de navegador único y el ID de sesión</td>
+                                        <td>3 meses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>IDE</td>
+                                        <td>Google DoubleClick</td>
+                                        <td>Utilizado por Google DoubleClick para registrar e informar sobre las acciones del usuario en el sitio web</td>
+                                        <td>1 año</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pestaña Acerca de las cookies -->
+                <div id="tab-acerca" class="tab-panel">
+                    <div class="cookie-about-content">
+                        <p>
+                            Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita un sitio web. Estos archivos permiten que el sitio web recuerde sus acciones y preferencias durante un período de tiempo, por lo que no tiene que volver a configurarlas cada vez que regrese al sitio o navegue de una página a otra.
+                        </p>
+                        <p>
+                            La ley afirma que podemos almacenar cookies en su dispositivo si son estrictamente necesarias para el funcionamiento de este sitio. Para todos los demás tipos de cookies necesitamos su permiso.
+                        </p>
+                        <p>
+                            Puede cambiar o retirar su consentimiento en cualquier momento haciendo clic en el icono de cookies en la esquina inferior izquierda de la página.
+                        </p>
+                        <p>
+                            Para más información, consulte nuestra <a href="javascript:void(0)" onclick="showPage('terminos')">Política de Privacidad</a>.
+                        </p>
+                        <div class="consent-id-section">
+                            <p><strong>ID de consentimiento:</strong></p>
+                            <code id="consentId" class="consent-id-code">No disponible</code>
+                            <p class="consent-id-note">Guarde este ID para referencia futura.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-customize" onclick="handleCookieCustomize()">Permitir la selección</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="handleCookieAccept()">Aceptar todas</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
